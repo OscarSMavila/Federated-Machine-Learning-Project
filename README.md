@@ -1,8 +1,8 @@
-Enhancing Model Aggregation in Federated Machine Learning
+# Enhancing Model Aggregation in Federated Machine Learning
 
 A federated learning project exploring whether trust-based model aggregation and model pruning can improve training speed, accuracy, and communication efficiency.
 
-Overview
+## Overview
 
 Federated Learning (FL) allows multiple clients to train a shared machine learning model without directly sharing their training data.
 
@@ -10,7 +10,7 @@ This project investigates Behavioral Trust-Aware Federated Averaging (BTA-FedAvg
 
 The project also explores model pruning to reduce redundant model parameters before models are sent to the server.
 
-Approach
+## Approach
 
 The project uses the Flower federated learning framework to simulate up to 50 clients.
 
@@ -21,7 +21,7 @@ AdaptiveFedAvg — Adaptive client weighting
 FLEvaluate — Additional aggregation baseline
 BTA-FedAvg — Proposed trust-aware aggregation strategy
 Model pruning — Tested in combination with federated learning
-BTA-FedAvg
+### BTA-FedAvg
 
 Each client receives a trust score based on its historical accuracy. The score is updated using an exponential moving average.
 
@@ -29,18 +29,18 @@ Clients with consistently better performance receive a greater weight during agg
 
 A 15-round warmup period is used before trust scores begin affecting aggregation.
 
-Models and Datasets
-Model
+## Models and Datasets
+### Model
 EfficientNet-B0
 Pretrained ImageNet weights
 Images resized to 224×224
-Datasets
+### Datasets
 CIFAR-100
 SVHN
 
 The datasets were partitioned among simulated clients using stratified splits.
 
-Training
+## Training
 
 The main experiments used:
 
@@ -51,7 +51,7 @@ Learning rate: 0.001
 Batch size: 128
 Client-side pruning: 20%
 Flower federated learning simulation
-Results
+## Results
 ### CIFAR-100
 
 | Metric | FedAvg | AdaptiveFedAvg | BTA-FedAvg | FLEvaluate |
@@ -76,14 +76,14 @@ AdaptiveFedAvg performed significantly worse in this experiment.
 
 Adding pruning resulted in a small improvement in accuracy, but increased the number of rounds required to converge and increased processing time.
 
-Key Findings
+## Key Findings
 BTA-FedAvg converged faster than standard FedAvg in the tested experiments.
 Trust-based weighting can give consistently performing clients more influence during aggregation.
 20% pruning produced a small accuracy improvement on SVHN.
 Pruning introduced additional training time and slower convergence.
 AdaptiveFedAvg performed poorly on the CIFAR-100 experiment.
 BTA-FedAvg and FedAvg achieved similar final accuracy, while BTA-FedAvg generally converged faster.
-Limitations
+## Limitations
 
 The current implementation has several limitations:
 
@@ -92,7 +92,7 @@ Trust is currently based primarily on historical client accuracy.
 Pruning requires careful tuning to avoid negatively affecting training.
 The experiments use simulated clients rather than physical edge devices.
 More testing is needed with unreliable or malicious clients.
-Future Work
+## Future Work
 
 Potential improvements include:
 
@@ -102,7 +102,7 @@ Further tuning pruning thresholds.
 Supporting heterogeneous model architectures.
 Exploring knowledge distillation for communication between different model architectures.
 Comparing against additional robust federated learning strategies.
-Technologies
+## Technologies
 Python
 PyTorch
 Flower
@@ -111,7 +111,7 @@ TensorFlow/Keras
 EfficientNet-B0
 CIFAR-100
 SVHN
-Authors
+## Authors
 
 Oscar Mavila
 Joseph Woods
