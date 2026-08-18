@@ -52,23 +52,27 @@ Batch size: 128
 Client-side pruning: 20%
 Flower federated learning simulation
 Results
-CIFAR-100
-Metric	FedAvg	AdaptiveFedAvg	BTA-FedAvg	FLEvaluate
-Accuracy	85.70%	6.12%	85.41%	85.67%
-F1 Score	85.66%	4.83%	85.36%	85.61%
-Convergence Round	82	101	57	74
-Processing Time	18,013s	11,059s	17,883s	25,144s
+### CIFAR-100
+
+| Metric | FedAvg | AdaptiveFedAvg | BTA-FedAvg | FLEvaluate |
+|---|---:|---:|---:|---:|
+| Accuracy | 85.70% | 6.12% | 85.41% | 85.67% |
+| F1 Score | 85.66% | 4.83% | 85.36% | 85.61% |
+| Convergence Round | 82 | 101 | **57** | 74 |
+| Processing Time | 18,013s | 11,059s | **17,883s** | 25,144s |
 
 BTA-FedAvg achieved the fastest convergence, reaching its target accuracy in 57 rounds compared with 82 rounds for standard FedAvg.
 
 AdaptiveFedAvg performed significantly worse in this experiment.
 
-SVHN
-Metric	BTA-FedAvg	FedAvg	BTA-FedAvg + Pruning
-Accuracy	97.39%	97.40%	97.47%
-F1 Score	97.39%	97.40%	97.47%
-Convergence Round	79	89	93
-Processing Time	19,620s	19,787s	20,405s
+### SVHN
+
+| Metric | BTA-FedAvg | FedAvg | BTA-FedAvg + Pruning |
+|---|---:|---:|---:|
+| Accuracy | 97.39% | 97.40% | **97.47%** |
+| F1 Score | 97.39% | 97.40% | **97.47%** |
+| Convergence Round | **79** | 89 | 93 |
+| Processing Time | 19,620s | 19,787s | 20,405s |
 
 Adding pruning resulted in a small improvement in accuracy, but increased the number of rounds required to converge and increased processing time.
 
